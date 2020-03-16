@@ -18,9 +18,26 @@ Build
 Run
 
 ```
-make all
+make
 ```
 
-and check the `target` directory for the result artifacts.
+and check the `target` directory for the resulting artifacts.
+
+If you want to build only single language artifact, specify the language as a target, e.g.
+
+```
+make en
+```
+
+or
+
+```
+make ru
+```
+
+
+
+Notes
+=====
 
 Auxiliary build files are stored in `build` directory and do not need to be versioned with `git`.
