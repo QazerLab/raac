@@ -34,10 +34,3 @@ or
 ```
 make ru
 ```
-
-
-
-Notes
-=====
-
-Auxiliary build files are stored in `build` directory and do not need to be versioned with `git`.
