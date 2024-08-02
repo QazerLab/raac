@@ -1,6 +1,7 @@
 \documentclass[letterpaper, 11pt]{article}
 
 \usepackage[top=0in, bottom=1in, left=1in, right=1in, includehead, includefoot]{geometry}
+\usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english,russian]{babel}
 \usepackage{titlesec}
@@ -10,11 +11,11 @@
 \usepackage{float}
 \usepackage{hyperref}
 \usepackage{amssymb}
+\usepackage{enumitem}
 
 
 
 \definecolor{headerColor}{HTML}{003300}
-\renewcommand{\familydefault}{phv}
 
 \titleformat{\section}[hang]
     {\Large}
@@ -23,32 +24,26 @@
     {}
     [\color{headerColor}\hrule height 0.5pt]
 
+\setlist[itemize]{leftmargin=*}
+
 
 
 \begin{document}
 
-    \begin{wrapfigure}{R}{0.25\textwidth}
-        \centering
-        \vspace{-5pt}
-        \includegraphics[width=0.25\textwidth]{src/images/pho_small_cut.png}
-    \end{wrapfigure}
-
     \noindent
     \Huge
-    Кивер Данила Андреевич \\
+    Кивер Данила Андреевич \\ \\
     \normalsize
+    danila.kiver@mail.ru или +7-909-645-38-84 \\
 
     \noindent
-    Контакты: danila.kiver@mail.ru или +7-909-645-38-84. \\
+    Образование: МГУ имени М. В. Ломоносова, физический факультет, кафедра компьютерных методов физики, бакалавр (2015). \\
 
     \noindent
-    Образование: МГУ имени М. В. Ломоносова, физический факультет, кафедра компьютерных методов физики, бакалавр. \\
+    Коммуникация: upper-intermediate английский; есть опыт работы в англоязычных командах; есть опыт работы в распределенных командах с разбросом во временных зонах до 10 часов. \\
 
     \noindent
-    Коммуникация: upper-intermediate английский; есть опыт работы в распределенных командах (включая англоязычные). \\
-
-    \noindent
-    Публичные профили (кликабельно!): \href{https://stackoverflow.com/users/7191047/danila-kiver}{StackOverflow}, \href{https://unix.stackexchange.com/users/297621/danila-kiver}{Unix StackExchange}, \href{https://github.com/QazerLab}{GitHub}.
+    Публичные профили (кликабельно): \href{https://stackoverflow.com/users/7191047/danila-kiver}{StackOverflow}, \href{https://unix.stackexchange.com/users/297621/danila-kiver}{Unix StackExchange}, \href{https://github.com/QazerLab}{GitHub}.
 
 
 
@@ -56,11 +51,47 @@
 
     \section{Опыт работы}
 
-    Общий стаж --- 5 лет.
+    Общий стаж --- 9 лет.
 
     \begin{itemize}
         \item
-            Senior Software Engineer \\
+            \textbf{Творческий отпуск} \\
+            \footnotesize
+                январь 2024 -- н. в., в стаж не входит
+            \normalsize
+
+            \begin{itemize}
+                \item
+                    Путешествия, языки, книги, pet-проекты и расширение технического кругозора.
+            \end{itemize}
+
+        \item
+            \textbf{Старший разработчик, команда Архитектура} \\
+            \footnotesize
+                МойСклад (\url{https://moysklad.ru} и \url{https://kladana.com}), июль 2020 -- декабрь 2023
+            \normalsize
+
+            \begin{itemize}
+                \item
+                    Спроектировал систему управления окружениями и деплойментами для всей компании с учетом нюансов существующих в компании процессов.
+                \item
+                    Спроектировал новый вид девелоперских окружений для тестирования изменений с реальными данными по отдельному шарду (\texttt{microstage}, известный внутри компании как \texttt{minipig}) и реализовал с нуля инструментарий для управления этими окружениями: подготовки данных для окружения, оркестрации деплоймента и т. д.; разгрузил основное \texttt{stage}-окружение.
+                \item
+                    Внедрил разделение сборочной фермы на зоны под разные виды задач для оптимизации распределения нагрузки.
+                \item
+                    Внедрил использование статического анализа для прикладных сборок (spotbugs / maven dependency analyzer / hadolint / shellcheck), перевел все интеграционные тесты на использование testcontainers.
+                \item
+                    Участвовал в переработке системы построения отчетов (вынесении отчетов из основной транзакционной БД в отдельную аналитическую БД) --- проводил эксперименты с разными технологиями с замерами и анализом результатов; оптимизировал производительность прототипа новой системы.
+                \item
+                    Выполнял архитектурный надзор за изменениями, проектируемыми и разрабатываемыми продуктовыми командами: ревьюил архитектурные проекты и реализации новых прикладных сервисов.
+                \item
+                    Проводил технические интервью senior-разработчиков и техлидов.
+                \item
+                    Ни разу не уронил прод, имея полные доступы \raisebox{-0.5\height}{\includegraphics[width=10mm]{src/trollface_pipe_monocle.jpg}}
+            \end{itemize}
+
+        \item
+            \textbf{Senior Software Engineer} \\
             \footnotesize
                 EPAM Systems, май 2018 -- декабрь 2019
             \normalsize
@@ -69,37 +100,28 @@
                 \item
                     Проект PERF: мигрировал решение (Java-монолит на SpringBoot + PostgreSQL) в облако (VM с Ubuntu Server $\rightarrow$ GKE).
                 \item
-                    Проект Axway Syncplicity (\url{https://www.syncplicity.com}): разрабатывал и поддерживал бэкенд системы (message queue, content search, cloud storage) и сервисы, устанавливаемые on-premises (on-prem storage). Работал непосредственно с англоязычным заказчиком (включая ежедневные совещания и активную переписку). Технический стек --- Java-сервисы на SpringBoot + MariaDB на VM с CentOS 7 в AWS. Legacy-сервисы на Scala + Play.
+                    Проект Axway Syncplicity (\url{https://www.syncplicity.com}): разрабатывал и поддерживал бэкенд системы (message queue, content search, cloud storage) и сервисы, устанавливаемые on-premises (on-prem storage). Технический стек --- Java-сервисы на SpringBoot + MariaDB на VM с CentOS 7 в AWS. Legacy-сервисы на Scala + Play Framework.
                 \item
                     Участвовал во внутренней программе менторинга в роли ментора.
                 \item
-                    Выступал на технических митапах, в т.ч. на внешнем (тема --- детали реализации Linux-контейнеров и используемые ими интерфейсы ядра).
+                    Выступал на технических митапах, в т. ч. на внешнем (тема --- детали реализации Linux-контейнеров и используемые ими интерфейсы ядра).
             \end{itemize}
 
         \item
-            Senior Software Engineer \\
+            \textbf{Software Engineer / Senior Software Engineer} \\
             \footnotesize
-                NetCracker Technology, апрель 2017 -- май 2018
+                NetCracker Technology, ноябрь 2014 -- май 2018
             \normalsize
-            
+
             \begin{itemize}
                 \item
                     Разработал прототип системы Zero Touch Provisioning для проекта SD-WAN. Технический стек --- Java-сервисы на SpringBoot + PostgreSQL в OpenShift Origin.
                 \item
-                    Разработал и поддерживал отказоустойчивый облачный кластер PostgreSQL на базе фреймворка Patroni.
-            \end{itemize}
-
-        \item
-            Software Engineer \\
-            \footnotesize
-                NetCracker Technology, ноябрь 2014 -- март 2017
-            \normalsize
-
-            \begin{itemize}
+                    Разработал и поддерживал HA-дистрибутив PostgreSQL на базе фреймворка Patroni.
                 \item
                     Мигрировал существующее решение (Java-монолит на WildFly + Spring + PostgreSQL) в облачное окружение (OpenShift Origin).
                 \item
-                    Участвовал в разработке и поддерживал отказоустойчивую инфраструктуру на базе Pacemaker.
+                    Развивал и поддерживал HA-инфраструктуру на базе Pacemaker.
                 \item
                     Развивал и поддерживал низкоуровневые Java-библиотеки (persistence, history, platform abstraction) корпоративной платформы.
             \end{itemize}
@@ -109,45 +131,70 @@
 
 
 
-    \section{Sanity Check}
+    \section{Основные технологии}
+
+    \begin{itemize}
+        \item
+            Java (основной язык), Spring / SpringBoot, PostgreSQL.
+        \item
+            Linux: 9 лет в проде с RHEL-like дистрибутивами; 15+ лет по жизни со всем остальным. \\
+            \footnotesize
+            на рабочей станции \textbf{исключительно} Linux с максимально кастомизированной под себя конфигурацией; Windows и Mac не использую в качестве основной системы ни при каких условиях.
+            \normalsize
+
+        \item
+            Ansible, Docker, K8s и OKD (включая администрирование).
+        \item
+            OpenStack, AWS.
+    \end{itemize}
+
+
+
+
+
+    \section{Мы совместимы?}
+
+    Небольшой список из утверждений для проверки на культурную совместимость:
 
     \renewcommand{\labelitemi}{\checkmark}
 
-    Без адекватной культуры разработки любой проект становится неподдерживаемым в кратчайшие сроки независимо от технической квалификации команды и используемых технологий и инструментов, поэтому я подтверждаю, что:
-
     \begin{itemize}
-        \item Я уважаю принципы Twelve-Factor App и следую им.
-        \item Я понимаю важность грамотного версионирования и ветвления. Я склонен к следованию SemVer и Trunk-based Development, но понимаю, что при наличии мотивации и пояснительной документации в команде могут быть использованы другие схемы версионирования и ветвления. 
-        \item Я понимаю необходимость ревью кода и понимаю, что хорошее ревью возможно только для небольших изменений и при наличии внятных пояснений к PR/MR.
-        \item Я понимаю, что CI/CD --- это подход к организации процесса разработки, а не конкретные инструменты и факт их использования сам по себе.
-        \item Я понимаю идею DevOps и понимаю, что это культура и методология разработки, а не название выделенной команды из автоматизаторов / сетевиков / эникейщиков / релиз-инженеров / ... (place your DevOps anti-pattern here).
-        \item Я понимаю, что по указанным выше причинам корректное применение практик CI/CD и DevOps невозможно без надлежащего майндсета в команде разработки, без понимания этой командой инфраструктуры под приложениями и процессов разработки.
+        \item
+            Разработчик \textit{решает проблемы пользователей}, а не слепо и механически пишет код по ТЗ.
+            \\ \\
+            Используемые инструменты, технологии и формализованное ТЗ --- не догма и могут меняться в ходе работы, если это решит проблемы пользователей \textit{лучше}.
+
+        \item
+            использование слоев абстракций не снимает с разработчика обязанности знать или быть готовым разобраться, что происходит внутри используемых технологий.
+            \\ \\
+            \href{https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions}{Абстракции текут}, и когда это происходит, зачастую проще залезть в исходники, чем отлаживать черный ящик;
+
+        \item
+            CI/CD --- это подход к организации процесса разработки, а не конкретные инструменты и факт их использования сам по себе;
+
+        \item
+            DevOps --- это культура и методология разработки, применяемая командой, а не выделенная должность разработчика пайплайнов и манифестов.
+            \\ \\
+            \href{https://continuousdelivery.com/2012/10/theres-no-such-thing-as-a-devops-team/}{There's No Such Thing as a ``Devops Team''};
+
+        \item
+            по указанным выше причинам корректное применение практик CI/CD и DevOps невозможно без надлежащего образа мышления в команде разработки, без глубокого понимания этой командой используемых инструментов, инфраструктуры под разрабатываемыми приложениями и процессов разработки;
+
+        \item
+            код, как и история проекта, пишется единожды, а читается сотни раз:
+
+            \begin{itemize}
+                \item
+                производительный, но нечитаемый и неподдерживаемый код --- мусорный код;
+
+                \item
+                история проекта без грамотного разбиения на минимальные и атомарные коммиты со внятными commit message'ами --- мусорная история;
+            \end{itemize}
+
+        \item
+            удаленка --- это когда никого не волнует, в какой точке планеты, как долго и зачем ты находишься, как часто и куда перемещаешься. Важен только продукт, который ты создаешь.
     \end{itemize}
-    
+
     \renewcommand{\labelitemi}{\textbullet}
-
-
-
-
-
-    \section{Технические навыки}
-
-    \begin{itemize}
-        \item Linux (общий опыт --- 10+ лет с разными дистрибутивами, включая desktop; ``боевой'' опыт --- 5 лет на CentOS 6/7 и Ubuntu Server).
-        \item Языки: Java 8 (основной язык), bash.
-        \item Инфраструктура: Docker, OpenShift Origin до 3.6 (включая администрирование кластера) и Kubernetes, IaaS --- OpenStack (как пользователь) и AWS.
-        \item SCM: Ansible, Salt.
-    \end{itemize}
-
-
-
-
-
-    \section{Околопрофессиональные интересы}
-
-    Активно изучаю различные (альтернативные моему текущему техническому стеку) подходы и парадигмы в разработке (Rust, Haskell, C). Знакомлюсь с низкоуровневым устройством используемых технологий (изучаю код всего используемого стека --- в т.ч. Docker, Linux kernel, JDK/JVM; экспериментирую и ломаю всевозможными способами). \\
-
-    \noindent
-    По возможности разбираю интересные проблемы на StackOverflow и Unix StackExchange (ссылки на профили в шапке резюме). По мере необходимости выполняю мелкие исправления и улучшения в open-source проектах; не боюсь коммуницировать с коммьюнити.
 
 \end{document}
